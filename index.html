@@ -3,8 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Associate Researcher Certificate</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<title>Chapter Leader Certificate</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
   :root {
     --navy: #0a1628; --navy-mid: #112240;
@@ -13,59 +17,91 @@
     --muted: #7a8ba8; --border: rgba(201,168,76,0.25);
     --radius: 16px;
   }
+  
+  /* Resetting everything to strip layout modifiers entirely */
   * { margin:0; padding:0; box-sizing:border-box; }
+  
   body {
-    background: var(--navy) !important; color: var(--text) !important;
-    font-family: 'Lato', sans-serif !important; min-height: 100vh;
-    display: flex; flex-direction: column; align-items: center; padding: 40px 20px 80px;
+    background: var(--navy) !important; 
+    color: var(--text) !important;
+    font-family: 'Lato', sans-serif !important; 
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center;
+    padding: 40px 20px 80px;
   }
+  
   header { text-align:center; margin-bottom:44px; }
   .logo-row { display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:6px; }
+  
   .logo-icon {
     width:40px; height:40px; border-radius:10px;
     background: linear-gradient(135deg, var(--gold), var(--gold-light));
     display:flex; align-items:center; justify-content:center; font-size:20px;
   }
+  
   h1 {
-    font-family:'Cinzel',serif !important; font-size:28px; font-weight:700;
-    color: var(--gold-light) !important; letter-spacing:0.04em;
+    font-family:'Cinzel', serif !important; 
+    font-size: 28px; font-weight:700;
+    color: var(--gold-light) !important; 
+    letter-spacing:0.04em;
   }
+  
   .subtitle { font-size:13px; color:var(--muted); text-transform:uppercase; letter-spacing:0.1em; }
+  
   .card {
-    background: var(--navy-mid) !important; border:1px solid var(--border);
-    border-radius: var(--radius); padding:32px 36px; width:100%; max-width:520px;
+    background: var(--navy-mid) !important; 
+    border:1px solid var(--border);
+    border-radius: var(--radius); padding:32px 36px;
+    width:100%; max-width:520px; box-shadow: 0 24px 60px rgba(0,0,0,0.4);
   }
+  
   .field-label {
     font-size:11px; font-weight:700; text-transform:uppercase;
     letter-spacing:0.1em; color:var(--muted); margin-bottom:8px;
   }
+  
   input[type=text] {
-    width:100%; padding:13px 16px; background:rgba(10,22,40,0.7);
-    border:1.5px solid rgba(201,168,76,0.25); border-radius:10px;
-    color:var(--white); font-size:16px; outline:none; margin-bottom:20px;
+    width:100%; padding:13px 16px;
+    background:rgba(10,22,40,0.7); border:1.5px solid rgba(201,168,76,0.25);
+    border-radius:10px; color:var(--white); font-size:16px; outline:none;
+    margin-bottom:20px;
   }
+  
+  input[type=text]:focus { border-color:var(--gold); }
+  
   .gen-btn {
     width:100%; padding:15px;
-    background: #4a5568; /* Default safe gray when locked */
-    color: #a0aec0; border:none; border-radius:10px;
-    font-family:'Cinzel',serif; font-size:13px; font-weight:700;
-    letter-spacing:0.08em; cursor: not-allowed;
+    background: linear-gradient(135deg,var(--gold),var(--gold-light));
+    color:var(--navy); border:none; border-radius:10px;
+    font-family:'Cinzel', serif; font-size:13px; font-weight:700;
+    letter-spacing:0.08em; cursor:pointer; opacity:0.4; pointer-events:none;
   }
-  /* When the user types a name, this class changes styling and activates actions */
-  .gen-btn.active { 
-    background: linear-gradient(135deg,var(--gold),var(--gold-light)) !important;
-    color: var(--navy) !important;
-    cursor: pointer !important;
+  
+  .gen-btn.active { opacity:1; pointer-events:all; }
+  
+  #preview-section {
+    display:none; width:100%; max-width:900px; margin-top:32px;
   }
-  #preview-section { display:none; width:100%; max-width:900px; margin-top:32px; }
-  .preview-label { font-family:'Cinzel',serif; font-size:12px; color:var(--gold); text-align:center; margin-bottom:14px;}
-  #preview-canvas { width:100%; height:auto; border-radius:12px; display:block; }
+  
+  .preview-label {
+    font-family:'Cinzel', serif; font-size:12px; text-transform:uppercase;
+    letter-spacing:0.14em; color:var(--gold); margin-bottom:14px; text-align:center;
+  }
+  
+  #preview-canvas { 
+    width:100%; height:auto; 
+    border-radius:12px; 
+    box-shadow:0 20px 60px rgba(0,0,0,0.5); 
+    display:block; 
+  }
+  
   .dl-btn {
     display:block; width:100%; max-width:340px; margin:18px auto 0; padding:14px;
     background:var(--navy-mid); border:1.5px solid var(--gold);
-    color:var(--gold); border-radius:10px; font-family:'Cinzel',serif;
+    color:var(--gold); border-radius:10px; font-family:'Cinzel', serif;
     font-size:12px; font-weight:700; text-align:center; text-decoration:none;
   }
+  .dl-btn:hover { background:rgba(201,168,76,0.1); }
 </style>
 </head>
 <body>
@@ -73,18 +109,16 @@
 <header>
   <div class="logo-row">
     <div class="logo-icon">🏅</div>
-    <h1>Associate Researcher Certificate</h1>
+    <h1>Chapter Leader Certificate</h1>
   </div>
-  <p class="subtitle">Official Verification System</p>
+  <p class="subtitle">Official Synthica Generation System</p>
 </header>
 
 <div class="card">
   <div class="field-label">Recipient Name</div>
-  <input type="text" id="name-input" placeholder="Type name to unlock generator..." autocomplete="off">
-  <button class="gen-btn" id="generate-btn" disabled>Generate Certificate</button>
+  <input type="text" id="name-input" placeholder="Type name exactly as it should appear..." autocomplete="off">
+  <button class="gen-btn" id="generate-btn">Generate Certificate</button>
 </div>
-
-<img id="hidden-template" style="display:none;" src="data:image/jpeg;base64,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">
 
 <div id="preview-section">
   <p class="preview-label">Official Live Preview</p>
@@ -96,66 +130,73 @@
   const input = document.getElementById('name-input');
   const btn = document.getElementById('generate-btn');
 
-  // Listen to text inputs and unlock button smoothly
   input.addEventListener('input', () => {
-    if (input.value.trim().length > 0) {
-      btn.className = 'gen-btn active';
-      btn.removeAttribute('disabled');
-    } else {
-      btn.className = 'gen-btn';
-      btn.setAttribute('disabled', 'true');
-    }
+    btn.className = input.value.trim().length > 0 ? 'gen-btn active' : 'gen-btn';
   });
 
   btn.addEventListener('click', async () => {
     const name = input.value.trim();
     if (!name) return;
 
-    const tmpl = document.getElementById('hidden-template');
+    const tmpl = new Image();
+    tmpl.crossOrigin = "anonymous";
+    // Target the source image asset cleanly
+    tmpl.src = 'certificate-template.jpg'; 
 
-    // Prevent rendering glitches by forcing standard typography layout sets
+    await new Promise((resolve) => {
+      tmpl.onload = resolve;
+      tmpl.onerror = () => {
+        alert("Error loading certificate-template.jpg. Verify it is sitting directly alongside index.html in your main directory.");
+        resolve();
+      };
+    });
+
+    // FORCE high-priority font parsing before executing pixel array injections
     await document.fonts.load('10px "Cinzel"');
     await document.fonts.ready;
 
     const canvas = document.getElementById('preview-canvas');
     const ctx = canvas.getContext('2d');
 
-    // Use default dimensions from the source image blueprint
-    const W = tmpl.naturalWidth || 2000;
-    const H = tmpl.naturalHeight || 1414;
+    // Adapt layout context matching your template asset pixel proportions
+    const W = tmpl.naturalWidth || 1920;
+    const H = tmpl.naturalHeight || 1080;
     canvas.width = W;
     canvas.height = H;
 
-    // Render layout layers 
+    // Render underlying layout image
     ctx.drawImage(tmpl, 0, 0, W, H);
 
-    // Calculate font scale based on resolution metrics
+    // PROPORTIONAL SCALE CALCULATION: Scales font seamlessly relative to base resolution width
+    // Modifying the '0.052' scalar allows fine adjustment of font scaling (0.052 * 1920px yields ~100px text size)
     let baseFontSize = Math.floor(W * 0.052); 
     ctx.font = `700 ${baseFontSize}px "Cinzel"`;
     
-    // Safety check to dynamically wrap long name strings safely inside margins
-    const maxTextWidth = W * 0.76;
-    while (ctx.measureText(name).width > maxTextWidth && baseFontSize > 22) {
+    // Auto-fit long name entries so text stays safely inside boundaries
+    const maxTextWidth = W * 0.75;
+    while (ctx.measureText(name).width > maxTextWidth && baseFontSize > 24) {
       baseFontSize -= 4;
       ctx.font = `700 ${baseFontSize}px "Cinzel"`;
     }
 
+    // Precise Native Text Coordinates Center Alignment
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     
-    // Vertical alignment position placement
-    const targetY = H * 0.52; 
+    // Vertical offset height alignment parameter 
+    // Adjust 0.52 fraction slightly up or down to center perfectly on the text line of your template
+    const targetY = H * 0.345; 
 
-    // Render text shadow and font styling
-    ctx.fillStyle = '#c9a84c'; 
+    // Render crisp typographic details
+    ctx.fillStyle = '#c9a84c'; // Gold color matching design tokens
     ctx.fillText(name, W / 2, targetY);
 
-    // Make the preview layout wrapper visible
+    // Expose preview blocks to viewport cleanly
     const preview = document.getElementById('preview-section');
     preview.style.display = 'block';
     preview.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-    // Link the rendering context to the download button
+    // Link download file element output path
     document.getElementById('download-btn').href = canvas.toDataURL('image/png');
   });
 </script>
