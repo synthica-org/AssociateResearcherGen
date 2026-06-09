@@ -7,7 +7,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
   :root {
@@ -18,7 +18,7 @@
     --radius: 16px;
   }
   
-  /* Resetting everything to strip layout modifiers entirely */
+  /* Strip all default GitHub Jekyll theme modifiers completely */
   * { margin:0; padding:0; box-sizing:border-box; }
   
   body {
@@ -66,7 +66,6 @@
     border-radius:10px; color:var(--white); font-size:16px; outline:none;
     margin-bottom:20px;
   }
-  
   input[type=text]:focus { border-color:var(--gold); }
   
   .gen-btn {
@@ -76,7 +75,6 @@
     font-family:'Cinzel', serif; font-size:13px; font-weight:700;
     letter-spacing:0.08em; cursor:pointer; opacity:0.4; pointer-events:none;
   }
-  
   .gen-btn.active { opacity:1; pointer-events:all; }
   
   #preview-section {
@@ -111,7 +109,7 @@
     <div class="logo-icon">🏅</div>
     <h1>Associate Researcher Certificate</h1>
   </div>
-  <p class="subtitle">Official Synthica Generation System</p>
+  <p class="subtitle">Official Verification System</p>
 </header>
 
 <div class="card">
@@ -119,6 +117,8 @@
   <input type="text" id="name-input" placeholder="Type name exactly as it should appear..." autocomplete="off">
   <button class="gen-btn" id="generate-btn">Generate Certificate</button>
 </div>
+
+<img id="hidden-template" style="display:none;" src="data:image/jpeg;base64,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">
 
 <div id="preview-section">
   <p class="preview-label">Official Live Preview</p>
@@ -130,75 +130,6 @@
   const input = document.getElementById('name-input');
   const btn = document.getElementById('generate-btn');
 
+  // Activate action button dynamically 
   input.addEventListener('input', () => {
-    btn.className = input.value.trim().length > 0 ? 'gen-btn active' : 'gen-btn';
-  });
-
-  btn.addEventListener('click', async () => {
-    const name = input.value.trim();
-    if (!name) return;
-
-    const tmpl = new Image();
-    tmpl.crossOrigin = "anonymous";
-    // Target the source image asset cleanly
-    tmpl.src = 'certificate-template.jpg'; 
-
-    await new Promise((resolve) => {
-      tmpl.onload = resolve;
-      tmpl.onerror = () => {
-        alert("Error loading certificate-template.jpg. Verify it is sitting directly alongside index.html in your main directory.");
-        resolve();
-      };
-    });
-
-    // FORCE high-priority font parsing before executing pixel array injections
-    await document.fonts.load('10px "Cinzel"');
-    await document.fonts.ready;
-
-    const canvas = document.getElementById('preview-canvas');
-    const ctx = canvas.getContext('2d');
-
-    // Adapt layout context matching your template asset pixel proportions
-    const W = tmpl.naturalWidth || 1920;
-    const H = tmpl.naturalHeight || 1080;
-    canvas.width = W;
-    canvas.height = H;
-
-    // Render underlying layout image
-    ctx.drawImage(tmpl, 0, 0, W, H);
-
-    // PROPORTIONAL SCALE CALCULATION: Scales font seamlessly relative to base resolution width
-    // Modifying the '0.052' scalar allows fine adjustment of font scaling (0.052 * 1920px yields ~100px text size)
-    let baseFontSize = Math.floor(W * 0.052); 
-    ctx.font = `700 ${baseFontSize}px "Cinzel"`;
-    
-    // Auto-fit long name entries so text stays safely inside boundaries
-    const maxTextWidth = W * 0.75;
-    while (ctx.measureText(name).width > maxTextWidth && baseFontSize > 24) {
-      baseFontSize -= 4;
-      ctx.font = `700 ${baseFontSize}px "Cinzel"`;
-    }
-
-    // Precise Native Text Coordinates Center Alignment
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    
-    // Vertical offset height alignment parameter 
-    // Adjust 0.52 fraction slightly up or down to center perfectly on the text line of your template
-    const targetY = H * 0.345; 
-
-    // Render crisp typographic details
-    ctx.fillStyle = '#c9a84c'; // Gold color matching design tokens
-    ctx.fillText(name, W / 2, targetY);
-
-    // Expose preview blocks to viewport cleanly
-    const preview = document.getElementById('preview-section');
-    preview.style.display = 'block';
-    preview.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-    // Link download file element output path
-    document.getElementById('download-btn').href = canvas.toDataURL('image/png');
-  });
-</script>
-</body>
-</html>
+    btn.className = input.value.trim().length > 0 ? 'gen
